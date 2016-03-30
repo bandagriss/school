@@ -1,0 +1,7 @@
+{% if autores.count > 0 %}
+{% for autor in autores %}
+  <li><a href="/autor/get/{{ autor.id }}/">{{autor.nombre}}</a></li>
+{% endfor %}
+{% else %}
+<li> None to show!</li>
+{% endif %}

@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% block headerTitle %}
+Usuarios!!!
+{% endblock %}
+{% block pageContent %}
+
+
+<!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>
+                    Invoice
+                    <small>
+                        Some examples to get you started
+                    </small>
+                </h3>
+                        </div>
+
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="load" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Daily active users <small>Sessions</small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a href="#"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <table id="example2" class="table table-striped responsive-utilities jambo_table">
+                                        <thead>
+                                            <tr class="headings">
+                                                <th>
+                                                    <input type="checkbox" class="tableflat">
+                                                </th>
+                                                <th>Id </th>
+                                                <th>Nombre </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+                        <br />
+                        <br />
+
+                    </div>
+                </div>
+                    <!-- footer content -->
+                <footer>
+                    <div class="">
+                        <p class="pull-right">Gentelella Alela! a Bootstrap 3 template by <a>Kimlabs</a>. |
+                            <span class="lead"> <i class="fa fa-paw"></i> Gentelella Alela!</span>
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+
+                </div>
+                <!-- /page content -->
+
+
+                <!-- Datatables -->
+                  <script src="/static/gentella/js/datatables/js/jquery.dataTables.js"></script>
+                  <script src="/static/gentella/js/datatables/tools/js/dataTables.tableTools.js"></script>
+      <script>
+
+      $(function() {
+
+    $('#example2').dataTable( {
+
+        "DisplayLength": 25,
+        "LengthMenu": [25, 50],
+        "PaginationType": "full_numbers",
+
+        "Processing": true,
+        "ServerSide": true,
+        "ajax": {
+            "processing": true,
+            "url": '/listar/json/',
+            "dataSrc": ""
+        },
+
+        "columns": [
+                { "data": "id" },
+                { "data": "id" },
+                { "data": "nombre" }
+            ],
+
+        "JQueryUI": true,
+        "Paginate": true,
+        "Sort": false
+
+    });
+
+    // ...
+
+
+});
+
+     $(document).ready(function() {
+         $('#example').dataTable( {
+             "processing": true,
+             "ajax": {
+                 "processing": true,
+                 "url": '/listar/json/',
+                 "dataSrc": ""
+             },
+
+             "columns": [
+                     { "data": "id" },
+                     { "data": "id" },
+                     { "data": "nombre" }
+                 ]
+         } );
+     } );
+
+
+
+     $(document).ready(function() {
+
+     	//$('#jsontable').dataTable( {
+        //     "ajax": 'arrays.txt'
+        // } );
+
+     var oTable = $('#jsontable').dataTable();  //Initialize the datatable
+
+     	$('#load').on('click',function(){
+     		var user = $(this).attr('id');
+     		if(user != '')
+     		{
+     		$.ajax({
+     			url: '/listar/json/',
+     			dataType: 'json',
+     			success: function(s){
+     			console.log(s);
+     					oTable.fnClearTable();
+     					 	for(var i = 0; i < s.length; i++) {
+                              oTable.fnAddData([
+                                         s[i][0],
+     									s[i][1],
+     									s[i][2],
+     									s[i][3],
+     									s[i][4]
+                                           	   ]);
+     										} // End For
+
+     			},
+     			error: function(e){
+     			   console.log(e.responseText);
+     			}
+     			});
+     		}
+     	});
+     });
+
+      </script>
+
+
+{% endblock %}

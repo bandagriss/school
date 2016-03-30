@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block headerTitle %}
+Usuarios!!!
+{% endblock %}
+{% block pageContent %}
+
+
+<!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>
+                    Invoice
+                    <small>
+                        Some examples to get you started
+                    </small>
+                </h3>
+                        </div>
+
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="load" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+
+                                <div class="x_content">
+                                    <table id="example2" class="table table-striped responsive-utilities jambo_table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nro</th>
+                                                <th>Nombre </th>
+                                                <th>Matrícula</th>
+                                                <th>Email</th>
+                                                <th>Acción</th>
+
+                                            </tr>
+                                        </thead>
+
+                                        <tfoot>
+                                            <tr>
+                                                <th>Nro</th>
+                                                <th>Nombre </th>
+                                                <th>Matrícula</th>
+                                                <th>Email</th>
+                                                <th>Acción</th>
+                                            </tr>
+                                        </tfoot>
+
+
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+                        <br />
+                        <br />
+
+                    </div>
+                </div>
+                    <!-- footer content -->
+                <footer>
+                    <div class="">
+                        <p class="pull-right">Gentelella Alela! a Bootstrap 3 template by <a>Kimlabs</a>. |
+                            <span class="lead"> <i class="fa fa-paw"></i> Gentelella Alela!</span>
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+
+                </div>
+                <!-- /page content -->
+
+
+                <!-- Datatables -->
+                  <script src="/static/gentella/js/datatables/js/jquery.dataTables.js"></script>
+                  <script src="/static/gentella/js/datatables/tools/js/dataTables.tableTools.js"></script>
+      <script>
+
+      $(function() {
+
+    $('#example2').dataTable( {
+        "processing": true,
+        "serverSide": true,
+        // "ajax": {
+        //     "url": '/my/datatable/data/'
+        // }
+        "ajax": '/datatable/usuario/',
+        "tableTools": {
+                        "sSwfPath": "<?php echo base_url('assets2/js/Datatables/tools/swf/copy_csv_xls_pdf.swf'); ?>"
+                    }
+    });
+
+    $('#example2 tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } );
+
+    // DataTable
+    var table = $('#example2').DataTable();
+
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+
+    // ...
+
+
+
+});
+
+
+
+
+      </script>
+
+
+{% endblock %}

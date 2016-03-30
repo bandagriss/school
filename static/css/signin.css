@@ -1,0 +1,145 @@
+body {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: #EDEDED;
+  
+
+
+}
+
+.form-signin1 {
+  max-width: 350px;
+  padding: 12px;
+  margin: 0 auto;
+  
+  background-color: #FFFFFF;
+
+ border-radius: 13px 13px 13px 13px;
+-moz-border-radius: 13px 13px 13px 13px;
+-webkit-border-radius: 13px 13px 13px 13px;
+border: 1px double #A8A89A;
+
+background-color: rgba(255, 255, 255, 0.7)
+
+
+}
+
+.form-signin1 .form-signin-heading1 {
+  margin-bottom: 30px;
+  margin-top: -12px;
+  margin-left: -13px;
+  margin-right: -13px;
+  font-family: monospace;
+  font-weight: bold;
+  background-color: #337AB7;
+  color: #fff;
+  padding: 10px;
+  border-radius: 13px 13px 0px 0px;
+-moz-border-radius: 13px 13px 0px 0px;
+-webkit-border-radius: 13px 13px 0px 0px;
+
+
+.form-signin {
+  max-width: 500px;
+  padding: 12px;
+  margin: 0 auto;
+  
+  background-color: #FFFFFF;
+
+ border-radius: 13px 13px 13px 13px;
+-moz-border-radius: 13px 13px 13px 13px;
+-webkit-border-radius: 13px 13px 13px 13px;
+border: 1px double #A8A89A;
+
+
+}
+.table-responsive {
+  max-width: 800px;
+  padding: 12px;
+  margin: 0 auto;
+  
+  background-color: #FFFFFF;
+
+ border-radius: 5px 5px 5px 5px;
+-moz-border-radius: 5px 5px 5px 5px;
+-webkit-border-radius: 5px 5px 5px 5px;
+border: 0px double #A8A89A;
+
+
+}
+
+
+.form-signin .form-signin-heading {
+  margin-bottom: 30px;
+  margin-top: -12px;
+  margin-left: -13px;
+  margin-right: -13px;
+  font-family: monospace;
+  
+  background-color: #2e6da4;
+  color: #fff;
+  padding: 10px;
+  border-radius: 13px 13px 0px 0px;
+-moz-border-radius: 13px 13px 0px 0px;
+-webkit-border-radius: 13px 13px 0px 0px;
+
+}
+.checkbox {
+  margin-bottom: 10px;
+  margin-top: 2px;
+
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 2 16px;
+  margin-bottom: 10px;
+
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+}
+
+/*codigo roy*/
+
+
+input.search-query {
+    padding-left:26px;
+}
+
+form.form-search {
+    position: relative;
+}
+
+form.form-search:before {
+    content:'';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-image: url(http://getbootstrap.com/2.3.2/assets/img/glyphicons-halflings.png);
+    background-position: -48px 0;
+    position: absolute;
+    top:8px;
+    left:8px;
+    opacity: .5;
+    z-index: 1000;
+}
