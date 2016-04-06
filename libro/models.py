@@ -13,32 +13,36 @@ class Editor(models.Model):
     nombre = models.CharField(max_length=30)
 
     def __str__(self):
-		return '%d %s'%(self.id, self.nombre)
+        return '%d %s'%(self.id, self.nombre)
+
 
 class TipoDocumento(models.Model):
     descripcion = models.CharField(max_length=50)
 
     def __str__(self):
-		return '%d %s'%(self.id, self.descripcion)
+        return '%d %s'%(self.id, self.descripcion)
+
 
 class Area(models.Model):
     descripcion = models.CharField(max_length=50)
 
     def __str__(self):
-		return '%d %s'%(self.id, self.descripcion)
+        return '%d %s'%(self.id, self.descripcion)
+
 
 class Estado(models.Model):
     descripcion = models.CharField(max_length=50)
 
     def __str__(self):
-		return '%d %s'%(self.id, self.descripcion)
+        return '%d %s'%(self.id, self.descripcion)
+
 
 class Autor(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
 
     def __str__(self):
-		return '%d %s %s'%(self.id, self.nombre, self.apellido)
+        return '%d %s %s'%(self.id, self.nombre, self.apellido)
 
 
 class Libro(models.Model):
@@ -54,7 +58,7 @@ class Libro(models.Model):
     notas = models.TextField(blank=True)
 
     def __str__(self):
-		return '%d %s %s %s %d %s %s %s %s %s'%(self.id, self.codigo, self.titulo, self.autor, self.ejemplares, self.editor, self.estado, self.area, self.tipo_documento, self.notas)
+        return '%d %s %s %s %d %s %s %s %s %s'%(self.id, self.codigo, self.titulo, self.autor, self.ejemplares, self.editor, self.estado, self.area, self.tipo_documento, self.notas)
 
 
 class Prestamo(models.Model):
@@ -67,6 +71,7 @@ class Prestamo(models.Model):
 
     def __str__(self):
         return '%d %s %s %s %s'%(self.id, self.usuario, self.libro, self.estado, self.nota)
+
 
 class Devolucion(models.Model):
     prestamo = models.ForeignKey(Prestamo)

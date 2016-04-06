@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block pageContent %}
+<style type="text/css">
+    ul.errorlist {
+        margin: 0;
+        padding: 0;
+}
+.help-inline {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+</style>
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Registrar Libro</h3>
+        </div>
+
+    </div>
+<div class="clearfix"></div>
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Libro <small>Registre los datos de los libros</small></h2>
+        <div class="clearfix"></div>
+    </div>
+<form action="/libro/create/" method="post" class="form-horizontal form-label-left" id="formulario">{% csrf_token %}
+
+
+        {% for field in form %}
+            {% if field.errors %}
+
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ field.label }} <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    {{ field }}
+                    <span class="help-inline">
+                            {% for error in  field.errors %}{{ error }}{% endfor %}
+                        </span>
+                </div>
+            </div>
+            {% else %}
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ field.label }}</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">{{ field }}
+                        {% if field.help_text %}
+                            <p class="help-inline"><small>{{ field.help_text }}</small></p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+        <button type="clear" class="btn btn-primary">Reset</button>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+</form>
+</div>
+{% endblock %}

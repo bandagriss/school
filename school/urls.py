@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^sms/$', 'libro.views.IndexSms'),
     url(r'^twiliosms/$', 'libro.views.twiliosms'),
     url(r'^libro/index/$', 'libro.views.index'),
+    url(r'^libro/create/$', 'libro.views.create'),
 
     #
 ]
